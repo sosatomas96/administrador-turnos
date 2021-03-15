@@ -12,7 +12,7 @@ const Formulario = () => {
         hora:'',
         sintomas:'',
     })
-
+    
     const [error, actualizarError] = useState(false);
 
     //Actualizar form cada vez que el usuario escribe
@@ -20,27 +20,30 @@ const Formulario = () => {
     const actualizarState = e =>{
         actualizarCita({
             ...cita,
-            [e.target.name] : [e.target.value]
+            [e.target.name] : e.target.value
         })
     }
 
 
-    //Extraer valores de los input
-
-    const {mascota, propietario, fecha, hora, sintomas} = cita;
+   
 
     //Boton 'agregar cita'
 
     const submitCita = e =>{
 
+
+        console.log(cita);
+         //Extraer valores de los input
+         const {mascota, propietario, fecha, hora, sintomas} = cita;
+
         e.preventDefault();
         
     
         //Validaciones
-
-        if (mascota.trim() === '' || propietario.trim() === '' || fecha.trim() === '' || hora.trim() === '' || sintomas.trim() === ''){
+        
+         if (mascota.trim() === '' || propietario.trim() === '' || fecha.trim() === '' || hora.trim() === '' || sintomas.trim() === ''){
             actualizarError(true);
-            return;
+             return;
         
         }
         //Eliminar mensaje de error
@@ -53,7 +56,7 @@ const Formulario = () => {
         
     }
 
-    
+    const {mascota, propietario, fecha, hora, sintomas} = cita;
 
     return ( 
         <>
