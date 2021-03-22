@@ -11,16 +11,16 @@ function App() {
   }
 
   //Citas
-  const [citas, guardarCitas] = useState([citasIniciales]);
+  const [citas, guardarCitas] = useState(citasIniciales);
 
   //useEffect
-  useEffect(() =>{
-    if(citasIniciales) {
+  useEffect( () => {
+    if(citasIniciales){
       localStorage.setItem('citas', JSON.stringify(citas))
-    } else {
+    } else{
       localStorage.setItem('citas', JSON.stringify([]))
     }
-  }, [citas]);
+  }, [citas] );
 
   //Función que tome las citas actuales y las guarde
   const crearCita = cita =>{
